@@ -3,22 +3,32 @@
 WATER_PER_KG = 30
 ML_IN_LITER = 1000
 
-
 user_name = input("Введите ваше имя: ")
-user_age = int(input("Введите ваш возраст: "))
 
+while True:
+    try:
+        user_age = int(input("Введите возраст: "))
+        break
+    except ValueError:
+        print("Введите цифры, не буквы")
 
-user_weight = float(input("Введите ваш вес (в кг): "))
-user_height = float(input("Введите ваш рост (в метрах, например 1.75): "))
+while True:
+    try:
+        user_weight = float(input("Введите вес (в кг): "))
+        break
+    except ValueError:
+        print("Введите цифры, не буквы")
 
+while True:
+    try:
+        user_height = float(input("Введите рост в метрах, пример 1.75): "))
+        break
+    except ValueError:
+        print("Введите цифры, не буквы")
 
 bmi = round(user_weight / (user_height ** 2), 1)
 
-
-water_needed = user_weight * WATER_PER_KG
-
-water_liters = water_needed / ML_IN_LITER
-
+water_liters = user_weight * WATER_PER_KG / ML_IN_LITER
 
 print(f"Отчет для пользователя: {user_name} ({user_age} г.)")
 print(f"Твой Индекс Массы Тела: {bmi}")
